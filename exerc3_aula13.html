@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- REACT LIBRARY -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <title>Wrapper com React</title>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+  
+    function ProfileCard(props) {
+      return (
+        <div style={{ border: "1px solid #ccc", padding: "10px", width: "250px", borderRadius: "8px" }}>
+          <img src={props.imagemUrl} alt={props.nome} style={{ width: "100px", borderRadius: "50%" }} />
+          <h2>{props.nome}</h2>
+          <p>{props.descricao}</p>
+        </div>
+      );
+    }
+
+    
+    function Wrapper(props) {
+      return (
+        <div style={{ border: '2px dashed blue', padding: '10px', margin: '10px' }}>
+          {props.children}
+        </div>
+      );
+    }
+
+    // Componente App
+    function App() {
+      return (
+        <div>
+          
+          <Wrapper>
+            <p>Texto simples dentro do wrapper.</p>
+          </Wrapper>
+
+          
+          <Wrapper>
+            <ProfileCard
+              nome="Joana Mendes"
+              imagemUrl="ft1.jpg"
+              descricao="Engenheira de software especializada em backend."
+            />
+          </Wrapper>
+        </div>
+      );
+    }
+
+  
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</body>
+
+</html>
