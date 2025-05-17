@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- REACT LIBRARY -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <title>Saudação com React</title>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    // Componente SaudacaoUsuario
+    function SaudacaoUsuario(props) {
+      return <h1>Olá, {props.nome}! Bem-vindo(a)!</h1>;
+    }
+
+    // Componente App
+    function App() {
+      return (
+        <div>
+          <SaudacaoUsuario nome="Santos" />
+          <SaudacaoUsuario nome="Turma LPV" />
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+
+</html>

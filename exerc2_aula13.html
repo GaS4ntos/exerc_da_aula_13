@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- REACT LIBRARY -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <title>Profile Card com React</title>
+  <style>
+    /* Estilo básico para os cards */
+    .profile-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      width: 250px;
+      font-family: Arial, sans-serif;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    .profile-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .profile-card h2 {
+      margin: 0 0 8px 0;
+      font-size: 1.4em;
+    }
+
+    .profile-card p {
+      margin: 0;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    // Componente ProfileCard
+    function ProfileCard(props) {
+      return (
+        <div className="profile-card">
+         
+          <h2>{props.nome}</h2>
+          <p>{props.descricao}</p>
+        </div>
+      );
+    }
+
+    // Componente App
+    function App() {
+      return (
+        <div>
+          <ProfileCard
+            nome="Lucas Silva"
+            descricao="empresario de apostas esportivas"
+          />
+          <ProfileCard
+            nome="Ana Maria"
+            descricao="Designer gráfico"
+          />
+        </div>
+      );
+    }
+
+    // Renderizando o componente App no elemento com id "root"
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</body>
+
+</html>
